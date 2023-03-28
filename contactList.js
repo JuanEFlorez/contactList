@@ -1,4 +1,3 @@
-// Creamos una lista de contactos vacía
 let listaContactos = [
   {
     id: 1,
@@ -38,8 +37,6 @@ let listaContactos = [
   },
 ];
 
-listaContactos.push();
-
 // Función para añadir un nuevo contacto a la lista
 function agregarContacto(
   id,
@@ -69,6 +66,27 @@ function borrarContacto(id) {
   }
 }
 
+// Función para actualizar un contacto existente de la lista
+function actualizarContacto(
+  id,
+  nombre,
+  apellido,
+  telefono,
+  ubicacion,
+  ciudad,
+  direccion
+) {
+  let indice = listaContactos.findIndex((contacto) => contacto.id === id);
+  if (indice !== -1) {
+    listaContactos[indice].nombre = nombre;
+    listaContactos[indice].apellido = apellido;
+    listaContactos[indice].telefono = telefono;
+    listaContactos[indice].ubicacion = ubicacion;
+    listaContactos[indice].ciudad = ciudad;
+    listaContactos[indice].direccion = direccion;
+  }
+}
+
 // Función para imprimir en consola los contactos presentes en la lista
 function imprimirContactos() {
   console.log(listaContactos);
@@ -87,6 +105,18 @@ agregarContacto(
 
 // Borramos un contacto existente de la lista
 borrarContacto(3);
+
+
+// Actualizamos un contacto existente de la lista
+actualizarContacto(
+  2,
+  "Lucía",
+  "Charry",
+  "3101234567",
+  "Avenida 789",
+  "Medellín",
+  "Casa 2"
+);
 
 // Imprimimos la lista de contactos actualizada
 imprimirContactos();
